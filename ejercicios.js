@@ -321,8 +321,6 @@ function gastoViaje(){
         const $auto = document.querySelector('input[name="btnradio4"]:checked').id;
         if($ejercicio11Input1 >= 0 && $ejercicio11Input2 >= 0){
             const extra = $ejercicio11Input2 > 100 ? 10 : 5;
-
-            console.log(extra, "...", autos[$auto], "...", $ejercicio11Input1)
                
             $ejercicio11Respuesta.innerHTML = `Lo que deberás pagar por el viaje es: $${(autos[$auto] * $ejercicio11Input1) + extra}`;
 
