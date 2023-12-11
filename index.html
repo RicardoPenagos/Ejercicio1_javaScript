@@ -152,7 +152,7 @@
             <section id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse">
                 <div class="accordion-body">
                     <p>Ingresa el día de la semana y te diré algo interesante</p>
-                    <input type="text" class="form-control w-25" placeholder="Escribe el primer número aquí"
+                    <input type="text" class="form-control w-25" placeholder="Escribe el día de la semana aquí"
                         id="ejercicio7Input1">
                     <button class="btn btn-primary mt-2" id="ejercicio7BtnAceptar">Aceptar</button>
                     <p class="m-3" id="ejercicio7Respuesta"></p>
@@ -171,8 +171,8 @@
             </h2>
             <section id="panelsStayOpen-collapseEight" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <p>Ingresa tu calificación y te daré tu resultado</p>
-                    <input type="text" class="form-control w-25" placeholder="Escribe el primer número aquí"
+                    <p>Ingresa tu calificación y te daré tu resultado (del 0 al 10)</p>
+                    <input type="text" class="form-control w-25" placeholder="Escribe tu calificación aquí"
                         id="ejercicio8Input1">
                     <button class="btn btn-primary mt-2" id="ejercicio8BtnAceptar">Aceptar</button>
                     <p class="m-3" id="ejercicio8Respuesta"></p>
@@ -194,22 +194,107 @@
                     <p>Selecciona que topping quieres con el helado</p>
                     
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="topping">
-                        <input type="radio" class="btn-check" name="btnradio" id="toppingNinguno" autocomplete="off" checked>
+                        <input type="radio" class="btn-check ejercicio9ClaseTopping" name="btnradio" id="toppingNinguno" autocomplete="off" checked>
                         <label class="btn btn-outline-primary" for="toppingNinguno">Ninguno</label>
                       
-                        <input type="radio" class="btn-check" name="btnradio" id="toppingOreo" autocomplete="off">
+                        <input type="radio" class="btn-check ejercicio9ClaseTopping" name="btnradio" id="toppingOreo" autocomplete="off">
                         <label class="btn btn-outline-primary" for="toppingOreo">Oreo</label>
                       
-                        <input type="radio" class="btn-check" name="btnradio" id="toppingKitKat" autocomplete="off">
+                        <input type="radio" class="btn-check ejercicio9ClaseTopping" name="btnradio" id="toppingKitKat" autocomplete="off">
                         <label class="btn btn-outline-primary" for="toppingKitKat">KitKat</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="toppingBrownie" autocomplete="off">
+                        <input type="radio" class="btn-check ejercicio9ClaseTopping" name="btnradio" id="toppingBrownie" autocomplete="off">
                         <label class="btn btn-outline-primary" for="toppingBrownie">Brownie</label>
                     </div>                  
                     <br>
 
-                    <button class="btn btn-primary mt-2" id="ejercicio9BtnAceptar">Aceptar</button>
+                    <button class="btn btn-success mt-2" id="ejercicio9BtnAceptar">Aceptar</button>
                     <p class="m-3" id="ejercicio9Respuesta"></p>
+                </div>
+            </section>
+        </section>
+
+        
+        <section class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseTen">
+                    Ejercicio 10. Cursos
+                </button>
+            </h2>
+            <section id="panelsStayOpen-collapseTen" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <p>¿En cuál programa quieres participar?</p>
+                    
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="topping" name="divBtnRadio">
+                              
+                        <input type="radio" class="btn-check" name="btnradio2" id="programaCourse" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="programaCourse">Course: $4999 MXN</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio2" id="programaCarrera" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="programaCarrera">Carrera: $3999 MXN</label>
+
+                        <input type="radio" class="btn-check" name="btnradio2" id="programaMaster" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="programaMaster">Master: $2999 MXN</label>
+                    </div>                  
+                    <br> <br>
+
+                    <p>¿Cuentas con alguna beca para decuento?</p>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="topping" name="divBtnRadio">
+                        <input type="radio" class="btn-check" name="btnradio3" id="becaNinguna" autocomplete="off" >
+                        <label class="btn btn-outline-primary" for="becaNinguna">Ninguna</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio3" id="becaFacebook" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="becaFacebook">Facebook: 20%</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio3" id="becaGoogle" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="becaGoogle">Google: 15%</label>
+
+                        <input type="radio" class="btn-check" name="btnradio3" id="becaJesua" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="becaJesua">Jesua: 50% </label>
+                    </div>                  
+                    <br>
+
+                    <button class="btn btn-success mt-2" id="ejercicio10BtnAceptar">Aceptar</button>
+                    <p class="m-3" id="ejercicio10Respuesta"></p>
+                </div>
+            </section>
+        </section>
+
+        
+        <section class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseEleven">
+                    Ejercicio 11. Gasto de viaje
+                </button>
+            </h2>
+            <section id="panelsStayOpen-collapseEleven" class="accordion-collapse collapse">
+                <div class="accordion-body">
+
+                    <p>El día de hoy te ayudaré a calcular lo que tendrás que pagar al recorrer cierta distancia, empieza agregando cuantos kilómetros recorriste: </p>
+                    <input type="number" class="form-control w-25" placeholder="Escribe aquí la distancia" id="ejercicio11Input1">
+                    <br>
+                    
+                    <p>Selecciona el vehículo que utilizaste:</p>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="topping">
+                        <input type="radio" class="btn-check" name="btnradio4" id="autoCoche" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="autoCoche">Coche</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio4" id="autoMoto" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="autoMoto">Moto</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio4" id="autoAutobus" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="autoAutobus">Autobús</label>
+                    </div>                  
+                    <br><br>
+
+                    <p>Por favor agregua cuantos litros de gasolina gastaste: </p>
+                    <input type="number" class="form-control w-25" placeholder="Escribe los litros aquí" id="ejercicio11Input2">
+                    <button class="btn btn-primary mt-2" id="ejercicio11BtnAceptar">Aceptar</button>
+                    <p class="m-3" id="ejercicio11Respuesta"></p>
                 </div>
             </section>
         </section>

@@ -48,7 +48,7 @@ const $ejercicio3Activar = document.querySelector('#ejercicio3Activar');
 
 function activarPrompt(){
     const numeroPrompt = prompt("Introduce un número y te diré si es par o no");
-    if(!isNaN(numeroPrompt)){{
+    if(!isNaN(numeroPrompt) && numeroPrompt != null){{
         if( numeroPrompt % 2 == 0){
             alert("El número que introduciste en el prompt SI es par");
         }else{
@@ -127,8 +127,6 @@ function numeroMayor(){
     const $ejercicio6Respuesta = document.querySelector('#ejercicio6Respuesta');
 
     if( $ejercicio6Input1 != 0 && $ejercicio6Input2 != 0 && $ejercicio6Input3 != 0){
-        console.log('si entro al if ');
-        
         if($ejercicio6Input1 >= $ejercicio6Input2 && $ejercicio6Input1 >= $ejercicio6Input3 ){
             $ejercicio6Respuesta.innerHTML = `El número mayor es: ${$ejercicio6Input1}`
         }else if($ejercicio6Input2 >= $ejercicio6Input1 && $ejercicio6Input2 >= $ejercicio6Input3 ){
@@ -150,9 +148,9 @@ $ejercicio6BtnAceptar.addEventListener('click', numeroMayor);
 const $ejercicio7BtnAceptar = document.querySelector('#ejercicio7BtnAceptar');
 
 function randomLunes(){
-    const datos = ["El riesgo de ataques al corazón aumenta un 20% durante los lunes.","La mayoría de suicidios ocurren los lunes", "Casi el 50% de los empleados llega tarde al trabajo los lunes.", "Personas de edades comprendidas entre los 45 y 55 años suelen sufrir más el «síndrome de los lunes».", "Curiosamente los lunes son días buenos para comprar un coche ya que muchos concesionarios confeccionan ofertas para comienzos de semana.", "Cambio en los patrones de sueño. Si eres de los que duermes más horas durante los fines de semana puede que el lunes notes esa falta de sueño y te sientas algo peor en tu trabajo o estudios.", "La noche del domingo al lunes es la que menos dormimos.","Los lunes tenemos una peor imagen de nosotros mismos y nos cuesta más socializarnos.", "Nuestros deseos de cambiar de trabajo suelen aflorar durante este día de la semana.", "Menos trabajo. Normalmente los lunes se suele rendir menos en el trabajo. Se calcula que el trabajo productivo durante los lunes se limita a las 3-4 horas.", "Se cree que una buena manera de recuperarse de este tipo de síntomas provocados por el lunes es ver la televisión o tomar chocolate."]
+    const datosLunes = ["El riesgo de ataques al corazón aumenta un 20% durante los lunes.","La mayoría de suicidios ocurren los lunes", "Casi el 50% de los empleados llega tarde al trabajo los lunes.", "Personas de edades comprendidas entre los 45 y 55 años suelen sufrir más el «síndrome de los lunes».", "Curiosamente los lunes son días buenos para comprar un coche ya que muchos concesionarios confeccionan ofertas para comienzos de semana.", "Cambio en los patrones de sueño. Si eres de los que duermes más horas durante los fines de semana puede que el lunes notes esa falta de sueño y te sientas algo peor en tu trabajo o estudios.", "La noche del domingo al lunes es la que menos dormimos.","Los lunes tenemos una peor imagen de nosotros mismos y nos cuesta más socializarnos.", "Nuestros deseos de cambiar de trabajo suelen aflorar durante este día de la semana.", "Menos trabajo. Normalmente los lunes se suele rendir menos en el trabajo. Se calcula que el trabajo productivo durante los lunes se limita a las 3-4 horas.", "Se cree que una buena manera de recuperarse de este tipo de síntomas provocados por el lunes es ver la televisión o tomar chocolate."]
 
-    return datos[Math.floor(Math.random() * datos.length)];
+    return datosLunes[Math.floor(Math.random() * datosLunes.length)];
 }
 
 function diaDeLaSemana(){
@@ -233,43 +231,17 @@ function topping(){
     };
 
     const $ejercicio9Respuesta = document.querySelector('#ejercicio9Respuesta');
-    const $topping = document.getElementsByName('btnradio');
-    for (var radio of $topping)
-    {
-        if (radio.checked) {
-            const valor = radio.id;
-            if(valor === "toppingNinguno"){
-               $ejercicio9Respuesta.innerHTML = `El precio sería de: ${precios.toppingNinguno}`;
-            }
-            
-        }
+
+    try{
+        const $topping =document.querySelector('input.ejercicio9ClaseTopping:checked').id;
+        $ejercicio9Respuesta.innerHTML = `El precio de tu helado sería de ${precios[$topping]}`;
+
+    }catch(e){
+        $ejercicio9Respuesta.innerHTML = `Quizá algo hiciste mal, vuelve a intentarlo (es probable que te faltó seleccionar una opción)`;
     }
-
-
 }
 
-
-
-
-
-    //const $topping = document.querySelector('input[name="topping"]:checked').value;
-
 $ejercicio9BtnAceptar.addEventListener('click' , topping);
-
-    // document.getElementById('ejercicio9BtnAceptar').onclick = function() {
-    //     var radios = document.getElementsByName('btnradio');
-    //     for (var radio of radios)
-    //     {
-    //         if (radio.checked) {
-    //             console.log(radio.id);
-    //         }
-    //     }
-    // }
-
-
-
-
-
 
 
 // 10. Un conocido portal de educación en tecnología está ofreciendo programas para aprender a desarrollar aplicaciones. Escribe un programa que le indique a la persona interesada cuánto deberá pagar mensualmente de acuerdo a la opción elegida.
@@ -285,9 +257,83 @@ $ejercicio9BtnAceptar.addEventListener('click' , topping);
 // Carrera 6 meses
 // Master: 12 meses
 
+const $ejercicio10BtnAceptar = document.querySelector('#ejercicio10BtnAceptar');
+
+function curso(){
+
+    const cursos = {
+        programaCourse: 4999,
+        programaCarrera: 3999,
+        programaMaster: 2999
+    }
+
+    const becas = {
+        becaNinguna: 0,
+        becaFacebook: 20,
+        becaGoogle: 15,
+        becaJesua: 50
+    }
+
+    const meses = {
+        programaCourse: 2,
+        programaCarrera: 6,
+        programaMaster: 12
+    }
+
+    const $ejercicio10Respuesta = document.querySelector('#ejercicio10Respuesta');
+
+    try{
+        const $curso = document.querySelector('input[name="btnradio2"]:checked').id;
+        const $beca = document.querySelector('input[name="btnradio3"]:checked').id;
+
+        $ejercicio10Respuesta.innerHTML = `Lo que deberás pagar mensualmente es: $${cursos[$curso] - (cursos[$curso] * becas[$beca]/100) } MXN y deberás pagarlo por ${meses[$curso]} meses.`
+        
+
+    }catch(e){
+        $ejercicio10Respuesta.innerHTML = `Quizá algo hiciste mal, vuelve a intentarlo (es probable que te faltó seleccionar una opción)`;
+    }
+
+}
+
+$ejercicio10BtnAceptar.addEventListener('click', curso);
 
 
 // 11. Realizar un programa que ayude a calcular el total a pagar de acuerdo a la distancia recorrida por un vehículo con cargo extra por los litros consumidos, tomando en consideración lo siguiente:
 // Si el vehículo es “coche”, el precio kilometro ha de ser 0.20, si es “moto” ha de ser 0.10 y si es “autobús” 0.5.
 // Si los litros consumidos están entre 0 y 100 se ha de añadir 5 al costo total, si es mayor la cantidad de litros consumidos se ha de añadir 10 al total. Considere qué:
 // total a pagar = (precio kilometro x kms recorridos) + extra por litros consumidos.
+
+const $ejercicio11BtnAceptar = document.querySelector('#ejercicio11BtnAceptar');
+
+function gastoViaje(){
+
+    const autos = {
+        autoCoche: 0.20,
+        autoMoto: 0.10,
+        autoAutobus: 0.5
+    }
+
+    const $ejercicio11Respuesta = document.querySelector('#ejercicio11Respuesta');
+    const $ejercicio11Input1 = Number (document.querySelector('#ejercicio11Input1').value);
+    const $ejercicio11Input2 = Number (document.querySelector('#ejercicio11Input2').value);
+   
+    try{
+        const $auto = document.querySelector('input[name="btnradio4"]:checked').id;
+        if($ejercicio11Input1 >= 0 && $ejercicio11Input2 >= 0){
+            const extra = $ejercicio11Input2 > 100 ? 10 : 5;
+
+            console.log(extra, "...", autos[$auto], "...", $ejercicio11Input1)
+               
+            $ejercicio11Respuesta.innerHTML = `Lo que deberás pagar por el viaje es: $${(autos[$auto] * $ejercicio11Input1) + extra}`;
+
+        }else{
+            $ejercicio11Respuesta.innerHTML = "Los valores que escribas deben ser positivos"
+        }
+        
+    }catch(e){
+        $ejercicio11Respuesta.innerHTML = `Quizá algo hiciste mal, vuelve a intentarlo`;
+    }
+
+}
+
+$ejercicio11BtnAceptar.addEventListener("click", gastoViaje);
